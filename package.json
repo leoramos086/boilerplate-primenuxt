@@ -17,6 +17,7 @@
     "@primevue/themes": "^4.0.7",
     "nuxt": "^3.13.0",
     "primevue": "^4.0.7",
+    "tailwindcss-primeui": "^0.3.4",
     "vue": "latest",
     "vue-router": "latest"
   },
