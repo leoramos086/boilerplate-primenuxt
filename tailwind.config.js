@@ -10,6 +10,9 @@ export default {
         contentCl: 'var(--p-content-color)',
         contentHoverCl: 'var(--p-content-hover-color)',
       },
+      boxShadow: {
+        card: 'var(--p-card-shadow)',
+      },
       borderRadius: {
         none: 'var(--p-border-radius-none, 0)',
         sm: 'var(--p-border-radius-xs, 0.125rem)',

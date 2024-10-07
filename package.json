@@ -16,6 +16,7 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@primevue/themes": "^4.0.7",
     "nuxt": "^3.13.0",
+    "nuxt-lucide-icons": "^1.0.5",
     "primevue": "^4.0.7",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "latest",

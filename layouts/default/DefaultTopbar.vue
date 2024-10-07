@@ -5,7 +5,16 @@ const { toggleMenuMobile, toggleDarkMode, toggleMenuAnchored } = useLayout()
 <template>
   <div class="flex justify-between items-center px-6 py-0 w-full min-h-16">
     <div>
-      <p>Esquerda</p>
+      <Button
+        rounded
+        severity="secondary"
+        class="lg:hidden"
+        @click="toggleMenuMobile()"
+      >
+        <template #icon>
+          <LucideMenu :size="20" />
+        </template>
+      </Button>
     </div>
     <div class="flex gap-2">
       <Button
