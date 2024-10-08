@@ -12,10 +12,8 @@ html {
 
 body {
   font-family: Tahoma, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply p-0 m-0 min-h-full bg-surface-100 dark:bg-surface-950
 }
 </style>

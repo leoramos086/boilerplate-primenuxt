@@ -6,6 +6,7 @@ interface LayoutState {
   menuAnchored: boolean
   menuMobileActive: boolean
   menuDesktopActive: boolean
+  activeMenuItem: string | null
 }
 
 const layoutConfig = reactive<LayoutConfig>({
@@ -16,6 +17,7 @@ const layoutState = reactive<LayoutState>({
   menuMobileActive: false,
   menuDesktopActive: false,
   menuAnchored: false,
+  activeMenuItem: null,
 })
 
 export function useLayout() {
@@ -44,18 +46,33 @@ export function useLayout() {
     else document.documentElement.classList.remove('dark')
   }
 
-  const setMenuActive = (status: boolean) => {
+  const setDesktopMenuActive = (status: boolean) => {
     if (!layoutState.menuAnchored) {
       layoutState.menuDesktopActive = status
     }
   }
 
+  const setActiveMenuItem = (item: string | null) => {
+    layoutState.activeMenuItem = item
+  }
+
+  const disableMenu = () => {
+    layoutState.menuDesktopActive = false
+    layoutState.menuMobileActive = false
+  }
+
+  const isSidebarActive = computed(() => layoutState.menuMobileActive || layoutState.menuDesktopActive)
+
   return {
     layoutConfig: readonly(layoutConfig),
     layoutState: readonly(layoutState),
+    isSidebarActive,
     toggleMenuAnchored,
     toggleMenuMobile,
     toggleDarkMode,
-    setMenuActive,
+    setActiveMenuItem,
+    setDesktopMenuActive,
+    disableMenu,
+
   }
 }
