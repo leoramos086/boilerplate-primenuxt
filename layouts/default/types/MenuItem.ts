@@ -1,10 +1,11 @@
 import type { FunctionalComponent } from 'vue'
 import type { LucideProps } from 'lucide-vue-next'
+import type { RouteLocationRaw } from 'vue-router'
 
 export interface MenuItem {
   label: string
   icon?: FunctionalComponent<LucideProps>
-  to?: string
+  to?: RouteLocationRaw
   url?: string
   class?: string
   separator?: boolean

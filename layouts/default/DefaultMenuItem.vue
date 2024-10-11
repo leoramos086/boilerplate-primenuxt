@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import type { MenuItem } from './types/MenuItem'
 
-const route = useRoute()
-
 const { layoutState, isSidebarActive, setActiveMenuItem, disableMenu } = useLayout()
 
 interface Props {
@@ -54,10 +52,6 @@ function itemClick(event: Event, item: MenuItem) {
 
   setActiveMenuItem(foundItemKey)
 }
-
-function checkActiveRoute(item: MenuItem) {
-  return route.path === item.to
-}
 </script>
 
 <template>
@@ -67,8 +61,8 @@ function checkActiveRoute(item: MenuItem) {
     </div>
     <RouterLink
       v-if="item.to && !item.items && item.visible !== false"
-      class="flex hover:bg-contentHoverBg py-4 pr-2 pl-5 rounded text-primary transition-all *:transition-all *:duration-300 cursor-pointer align-center"
-      :class="[item.class, checkActiveRoute(item) ? 'font-bold text-primary': 'text-muted-color-emphasis']"
+      class="flex hover:bg-contentHoverBg py-4 pr-2 pl-5 rounded transition-all *:transition-all *:duration-300 cursor-pointer align-center"
+      :class="[item.class]"
       tabindex="0"
       :to="item.to"
       @click="itemClick($event, item)"
@@ -96,6 +90,10 @@ function checkActiveRoute(item: MenuItem) {
 </template>
 
 <style scoped>
+.router-link-active {
+  @apply font-bold text-primary
+}
+
 .layout-submenu-enter-from,
 .layout-submenu-leave-to {
   max-height: 0;
