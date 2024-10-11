@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
     '@primevue/nuxt-module',
     'nuxt-lucide-icons',
   ],
