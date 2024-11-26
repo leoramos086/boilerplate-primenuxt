@@ -1,5 +1,6 @@
 interface LayoutConfig {
   darkTheme: boolean
+  responsived: boolean
 }
 
 interface LayoutState {
@@ -11,6 +12,7 @@ interface LayoutState {
 
 const layoutConfig = reactive<LayoutConfig>({
   darkTheme: false,
+  responsived: true,
 })
 
 const layoutState = reactive<LayoutState>({
@@ -37,6 +39,10 @@ export function useLayout() {
     }
 
     document.startViewTransition(() => executeDarkModeToggle())
+  }
+
+  const toggleResponsived = () => {
+    layoutConfig.responsived = !layoutConfig.responsived
   }
 
   const executeDarkModeToggle = () => {
@@ -70,6 +76,7 @@ export function useLayout() {
     toggleMenuAnchored,
     toggleMenuMobile,
     toggleDarkMode,
+    toggleResponsived,
     setActiveMenuItem,
     setDesktopMenuActive,
     disableMenu,

@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const { toggleMenuMobile, toggleDarkMode, layoutConfig } = useLayout()
+import DefaultTopbarSettings from './DefaultTopbarSettings.vue'
+
+const { toggleMenuMobile } = useLayout()
+
+const op = ref()
+
+const toggleOp = (event: Event) => {
+  op.value.toggle(event)
+}
 </script>
 
 <template>
@@ -12,12 +20,14 @@ const { toggleMenuMobile, toggleDarkMode, layoutConfig } = useLayout()
       </Button>
     </div>
     <div class="flex gap-2">
-      <Button rounded text severity="secondary" @click="toggleDarkMode">
+      <Button rounded text severity="secondary" @click="toggleOp">
         <template #icon>
-          <LucideSun v-if="layoutConfig.darkTheme" />
-          <LucideMoon v-else />
+          <LucideSettings2 />
         </template>
       </Button>
+      <Popover ref="op" class="w-96">
+        <DefaultTopbarSettings />
+      </Popover>
     </div>
   </div>
 </template>
