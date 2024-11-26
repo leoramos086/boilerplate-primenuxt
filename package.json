@@ -20,7 +20,7 @@
     "date-fns": "^4.1.0",
     "nuxt": "^3.13.0",
     "nuxt-lucide-icons": "^1.0.5",
-    "primevue": "^4.0.7",
+    "primevue": "^4.2.0",
     "tailwindcss-primeui": "^0.3.4",
     "vue": "latest",
     "vue-router": "latest"
